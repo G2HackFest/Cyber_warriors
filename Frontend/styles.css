@@ -1,0 +1,343 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar ul li:hover {
+    background: #1b5e20;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 300px;
+    padding: 20px;
+    width: calc(100% - 270px);
+}
+
+/* Sections */
+section {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h3 {
+    color: #2e7d32;
+}
+
+/* Profile */
+/* Profile Section */
+.profile-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.profile-card p {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.profile-card input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.profile-card button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.profile-card button:hover {
+    background: #218838;
+}
+
+/* Update Password Section */
+.profile-card h4 {
+    margin-top: 20px;
+    color: #d32f2f;
+    font-size: 1.1rem;
+}
+
+.profile-card input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* Add Product */
+.add-product input, .add-product textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* Preview Image */
+.preview img {
+    width: 200px;  /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio and crop if needed */
+    display: block;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start; /* Align items properly */
+}
+
+/* Product Item */
+.product-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: calc(33.333% - 20px); /* 3 items per row */
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Product Image */
+.product-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Maintain aspect ratio and crop if needed */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Product Info */
+.product-item h4 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-item p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: red;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+/* Hide Sections Initially */
+.hidden {
+    display: none;
+}
+
+
+/* Dark Mode */
+.dark-mode {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .sidebar {
+    background: #1b1b1b;
+}
+
+.dark-mode section {
+    background: #333;
+    color: white;
+}
+
+/* Store Section */
+.store-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.store-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.store-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.store-item h4 {
+    margin: 10px 0;
+    color: #2e7d32;
+}
+
+.store-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+.store-item .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+/* Filters */
+.filters {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filters select, .filters input {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Chat Section Styling */
+#chat {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#chat h3 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+#chat-box {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 80%;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+/* Buyer messages (User) */
+.user-message {
+    background: #4CAF50;
+    color: white;
+    align-self: flex-end;
+}
+
+.seller-list {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.seller-list h4 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.seller-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.seller-list li {
+    padding: 10px;
+    background: #f4f4f4;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.seller-list li:hover {
+    background: #dcdcdc;
+}
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard | Farm-to-Market</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadDashboard()">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🌱 Farm Seller</h2>
+        <ul>
+            <li onclick="showSection('profile')">👨‍🌾 Profile</li>
+            <li onclick="showSection('add-product')">➕ Add Product</li>
+            <li onclick="showSection('products')">📦 My Products</li>
+            <li onclick="showSection('store')">🏪 Store</li>
+            <li onclick="showSection('chat')">💬 Chat</li>
+            <li onclick="logout()">🚪 Logout</li>
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Welcome, <span id="welcome-name"></span> 👋</h2>
+        </div>
+
+        <!-- Profile Section -->
+        <section id="profile">
+            <h3>📋 Manage Your Profile </h3>
+            <div class="profile-card">
+                <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <p><strong>Contact:</strong> <span id="profile-contact"></span></p>
+                <input type="text" id="update-name" placeholder="Update Name">
+                <input type="text" id="update-contact" placeholder="Update Contact">
+                <button onclick="updateProfile()">Update</button>
+
+                <h4>🔒 Update Password</h4>
+                <input type="password" id="update-password" placeholder="New Password">
+                <button onclick="updatePassword()">Update Password</button>
+            </div>
+        </section>
+
+        <!-- Add Product Section -->
+        <section id="add-product" class="hidden">
+            <h3>➕ Add New Product</h3>
+            <div class="add-product">
+                <input type="text" id="product-name" placeholder="Product Name" required>
+                <input type="number" id="product-price" placeholder="Price (INR)" required>
+                <textarea id="product-description" placeholder="Product Description"></textarea>
+                <input type="file" id="product-image" onchange="previewImage()">
+                <div class="preview">
+                    <h4>📸 Product Preview</h4>
+                    <img id="image-preview" src="" alt="Preview">
+                </div>
+                <button onclick="addProduct()">Add Product</button>
+            </div>
+        </section>
+
+        <!-- Product List Section -->
+        <section id="products" class="hidden">
+            <h3>📦 My Products</h3>
+            <div class="product-list" id="product-list"></div>
+        </section>
+
+        <!-- Store Section -->
+        <section id="store" class="hidden">
+            <h3>🛒 Store</h3>
+
+            <!-- Filters -->
+            <div class="filters">
+                <select id="category-filter" onchange="filterProducts()">
+                    <option value="all">All Categories</option>
+                    <option value="vegetables">Vegetables</option>
+                    <option value="fruits">Fruits</option>
+                </select>
+
+                <input type="number" id="min-price" placeholder="Min Price (₹)" oninput="filterProducts()">
+                <input type="number" id="max-price" placeholder="Max Price (₹)" oninput="filterProducts()">
+            </div>
+
+            <div class="store-products" id="store-products"></div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="hidden">
+            <h3>💬 Chat with Buyers</h3>
+            <div id="chat-box" style="border: 1px solid #ccc; height: 300px; overflow-y: scroll; padding: 10px;"></div>
+            <input type="text" id="message-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </section>
+
+    </div>
+    <script src="seller-script.js"></script>
+    <script type="module" src="chat.js"></script>
+    <script> src="styles.css" </script>
+</body>
+</html>

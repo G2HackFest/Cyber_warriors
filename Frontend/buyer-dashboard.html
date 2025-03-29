@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard | Farm-to-Market</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="loadBuyerDashboard()">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🛍 Buyer Dashboard</h2>
+        <ul>
+            <li onclick="showSection('profile')">👤 Profile</li>
+            <li onclick="showSection('store')">🛒 Store</li>
+            <li onclick="showSection('chat')">💬 Chat</li>
+            <li onclick="logout()">🚪 Logout</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Welcome, <span id="buyer-name"></span> 👋</h2>
+        </div>
+
+        <!-- Profile Section -->
+        <section id="profile">
+            <h3>👤 Your Profile</h3>
+            <div class="profile-card">
+                <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <p><strong>Contact:</strong> <span id="profile-contact"></span></p>
+                <input type="text" id="update-name" placeholder="Update Name">
+                <input type="text" id="update-contact" placeholder="Update Contact">
+                <button onclick="updateProfile()">Update</button>
+
+                <h4>🔒 Update Password</h4>
+                <input type="password" id="update-password" placeholder="New Password">
+                <button onclick="updatePassword()">Update Password</button>
+            </div>
+        </section>
+
+        <!-- Store Section -->
+        <section id="store" class="hidden">
+            <h3>🛒 Store</h3>
+
+            <!-- Filters -->
+            <div class="filters">
+                <select id="category-filter" onchange="filterProducts()">
+                    <option value="all">All Categories</option>
+                    <option value="vegetables">Vegetables</option>
+                    <option value="fruits">Fruits</option>
+                </select>
+
+                <input type="number" id="min-price" placeholder="Min Price (₹)" oninput="filterProducts()">
+                <input type="number" id="max-price" placeholder="Max Price (₹)" oninput="filterProducts()">
+            </div>
+
+            <div class="store-products" id="store-products"></div>
+        </section>
+
+        <section id="chat">
+            <h3>💬 Chat with Sellers</h3>
+            
+            <!-- Seller List -->
+            <div id="seller-list" class="seller-list">
+                <h4>Select a Seller:</h4>
+                <ul id="seller-names"></ul>
+            </div>
+        
+            <!-- Chat Box -->
+            <div id="chat-box" style="border: 1px solid #ccc; height: 300px; overflow-y: scroll; padding: 10px;"></div>
+            <input type="text" id="message-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </section>
+        
+
+    </div>
+    
+    <script src="buyer-script.js"></script>
+    <script type="module" src="chat.js"></script>
+    <script> src="styles.css" </script>
+
+</body>
+</html>
